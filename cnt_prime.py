@@ -1,11 +1,16 @@
-import pdb
-with open('prime10000.txt', 'r') as file:
-    string = file.read()
 
-ct = 0
-for idx, c in enumerate(string):
-    if c.isnumeric():
-        ct += 1
-    if ct == 10000:
-        print(string[idx - 10:idx + 10])
-# pdb.set_trace()
+
+def get_prime_sequence(idx, string):
+    s = ''
+    for c in string:
+        if c.isnumeric():
+            s += str(c)
+
+    return s[idx:idx + 5]
+
+
+if __name__ == '__main__':
+    with open('prime10000.txt', 'r') as file:
+        string = file.read()
+    idx = 0
+    print(get_prime_sequence(idx, string))
